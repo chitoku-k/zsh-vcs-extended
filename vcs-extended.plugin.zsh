@@ -31,7 +31,7 @@ _zsh_vcs_extended_filesystem() {
 }
 
 _zsh_vcs_extended_has_untracked() {
-    git rev-parse --is-inside-work-tree &> /dev/null && git status --porcelain | grep -q '^??'
+    [[ $(git rev-parse --is-inside-work-tree 2>&1) = 'true' ]] && git status --porcelain | grep -q '^??'
 }
 
 +vi-_zsh_vcs_extended_hook_untracked() {
